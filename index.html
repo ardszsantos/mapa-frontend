@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO básico: título e descrição únicos por página -->
+  <title>TechVerse | Loja de Eletrônicos e Periféricos</title>
+  <meta name="description" content="TechVerse — loja virtual de eletrônicos e periféricos com as melhores ofertas em placas de vídeo, processadores, monitores e mais.">
+  <meta name="keywords" content="loja de informática, periféricos, placa de vídeo, processador, monitor, hardware">
+  <meta name="author" content="TechVerse">
+
+  <!-- Open Graph: melhora o compartilhamento em redes sociais -->
+  <meta property="og:title" content="TechVerse | Loja de Eletrônicos e Periféricos">
+  <meta property="og:description" content="As melhores ofertas em hardware e periféricos.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Cabeçalho: elemento semântico header + nav, compartilhado por todas as páginas -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Página inicial TechVerse">
+        Tech<span>Verse</span>
+      </a>
+
+      <!-- Em páginas sem vitrine, a busca redireciona para produtos.html -->
+      <form class="search-bar" role="search" id="searchForm">
+        <input type="search" id="searchInput" placeholder="Buscar produtos, marcas e muito mais..." aria-label="Buscar produtos">
+        <button type="submit" aria-label="Buscar">🔍</button>
+      </form>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav" aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html" aria-current="page">Início</a></li>
+          <li><a href="produtos.html">Produtos</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="contato.html">Contato</a></li>
+          <li><button id="themeToggle" class="theme-toggle" aria-label="Alternar tema claro/escuro">🌙</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <main>
+
+    <!-- Banner rotativo (carrossel) — efeito interativo 1 -->
+    <section class="hero" id="ofertas" aria-label="Ofertas em destaque">
+      <div class="carousel" id="carousel">
+        <div class="carousel-track" id="carouselTrack">
+          <article class="slide slide-1">
+            <div class="slide-content">
+              <h1>Semana do Gamer</h1>
+              <p>Até 40% OFF em periféricos e placas de vídeo</p>
+              <a href="produtos.html" class="btn">Ver ofertas</a>
+            </div>
+          </article>
+          <article class="slide slide-2">
+            <div class="slide-content">
+              <h2>Frete grátis acima de R$ 199</h2>
+              <p>Para todo o Brasil em produtos selecionados</p>
+              <a href="produtos.html" class="btn">Aproveitar</a>
+            </div>
+          </article>
+          <article class="slide slide-3">
+            <div class="slide-content">
+              <h2>Lançamento: linha RTX 50</h2>
+              <p>Em até 12x sem juros no cartão</p>
+              <a href="produtos.html?categoria=gpu" class="btn">Conferir</a>
+            </div>
+          </article>
+        </div>
+        <button class="carousel-btn prev" id="prevBtn" aria-label="Slide anterior">&#10094;</button>
+        <button class="carousel-btn next" id="nextBtn" aria-label="Próximo slide">&#10095;</button>
+        <div class="carousel-dots" id="carouselDots" role="tablist"></div>
+      </div>
+    </section>
+
+    <!-- Categorias: cada card leva à página de produtos já filtrada -->
+    <section class="categories container" id="categorias" aria-labelledby="categoriasTitle">
+      <h2 id="categoriasTitle">Categorias</h2>
+      <div class="categories-grid">
+        <a href="produtos.html?categoria=gpu" class="category-card">🎮 Placas de Vídeo</a>
+        <a href="produtos.html?categoria=cpu" class="category-card">⚙️ Processadores</a>
+        <a href="produtos.html?categoria=periferico" class="category-card">⌨️ Periféricos</a>
+        <a href="produtos.html?categoria=monitor" class="category-card">🖥️ Monitores</a>
+        <a href="produtos.html?categoria=armazenamento" class="category-card">💾 Armazenamento</a>
+        <a href="produtos.html?categoria=fonte" class="category-card">🔌 Fontes</a>
+      </div>
+    </section>
+
+    <!-- Destaques: subconjunto dos produtos, renderizado via JavaScript -->
+    <section class="products container" aria-labelledby="destaquesTitle">
+      <h2 id="destaquesTitle">Produtos em destaque</h2>
+      <div class="products-grid" id="featuredGrid">
+        <!-- Cards gerados dinamicamente via JavaScript -->
+      </div>
+      <p class="see-all">
+        <a href="produtos.html" class="btn btn-outline">Ver todos os produtos</a>
+      </p>
+    </section>
+
+    <!-- Newsletter com validação em JavaScript -->
+    <section class="newsletter" aria-labelledby="newsTitle">
+      <div class="container">
+        <h2 id="newsTitle">Receba nossas ofertas</h2>
+        <p>Cadastre seu e-mail e receba promoções exclusivas.</p>
+        <form id="newsletterForm" class="newsletter-form" novalidate>
+          <input type="email" id="newsletterEmail" placeholder="seu@email.com" aria-label="Seu e-mail" required>
+          <button type="submit" class="btn">Cadastrar</button>
+        </form>
+        <p class="form-feedback" id="formFeedback" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Rodapé semântico compartilhado -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <section aria-labelledby="footerSobre">
+        <h3 id="footerSobre">TechVerse</h3>
+        <p>Loja fictícia desenvolvida para fins acadêmicos na disciplina de Programação Front-End.</p>
+      </section>
+      <section aria-labelledby="footerLinks">
+        <h3 id="footerLinks">Navegação</h3>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="produtos.html">Produtos</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </section>
+      <section aria-labelledby="footerContato">
+        <h3 id="footerContato">Contato</h3>
+        <address>
+          <p>contato@techverse.example</p>
+          <p>São Paulo — SP, Brasil</p>
+        </address>
+      </section>
+    </div>
+    <p class="copyright">&copy; 2026 TechVerse — Projeto acadêmico. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Modal de detalhes do produto — efeito interativo 2 -->
+  <div class="modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose" aria-label="Fechar">&times;</button>
+      <h3 id="modalTitle"></h3>
+      <p id="modalDescription"></p>
+      <p class="modal-price" id="modalPrice"></p>
+      <button class="btn" id="modalBuy">Adicionar ao carrinho</button>
+    </div>
+  </div>
+
+  <!-- Notificação toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>

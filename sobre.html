@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO básico: título e descrição únicos por página -->
+  <title>Sobre a TechVerse | Quem somos</title>
+  <meta name="description" content="Conheça a TechVerse: nossa história, missão e valores. Loja virtual de tecnologia criada como projeto acadêmico de Programação Front-End.">
+  <meta name="keywords" content="sobre, techverse, loja de tecnologia, missão, valores">
+  <meta name="author" content="TechVerse">
+
+  <meta property="og:title" content="Sobre a TechVerse | Quem somos">
+  <meta property="og:description" content="Nossa história, missão e valores.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Cabeçalho compartilhado -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Página inicial TechVerse">
+        Tech<span>Verse</span>
+      </a>
+
+      <form class="search-bar" role="search" id="searchForm">
+        <input type="search" id="searchInput" placeholder="Buscar produtos, marcas e muito mais..." aria-label="Buscar produtos">
+        <button type="submit" aria-label="Buscar">🔍</button>
+      </form>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav" aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="produtos.html">Produtos</a></li>
+          <li><a href="sobre.html" aria-current="page">Sobre</a></li>
+          <li><a href="contato.html">Contato</a></li>
+          <li><button id="themeToggle" class="theme-toggle" aria-label="Alternar tema claro/escuro">🌙</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Banner interno da página -->
+    <section class="page-hero" aria-labelledby="pageTitle">
+      <div class="container">
+        <h1 id="pageTitle">Sobre a TechVerse</h1>
+        <p>Tecnologia de ponta com atendimento de verdade — conheça a nossa história.</p>
+      </div>
+    </section>
+
+    <!-- História e missão -->
+    <section class="about container" aria-labelledby="historiaTitle">
+      <article class="about-text">
+        <h2 id="historiaTitle">Nossa história</h2>
+        <p>
+          A TechVerse nasceu em 2026 como um projeto acadêmico da disciplina de
+          <strong>Programação Front-End</strong>, com o objetivo de simular uma loja virtual
+          completa de eletrônicos e periféricos. A proposta é demonstrar, na prática, como
+          HTML5, CSS3 e JavaScript trabalham juntos para criar experiências web modernas,
+          responsivas e acessíveis.
+        </p>
+        <p>
+          Ainda que fictícia, a loja foi pensada como um e-commerce real: vitrine dinâmica,
+          busca instantânea, filtros por categoria, carrinho simulado e atendimento ao cliente
+          por meio de um formulário de contato validado em tempo real.
+        </p>
+      </article>
+
+      <!-- Cards de missão, visão e valores -->
+      <div class="about-cards">
+        <article class="about-card">
+          <h3>🎯 Missão</h3>
+          <p>Democratizar o acesso à tecnologia com preços justos, informação clara e uma experiência de compra simples em qualquer dispositivo.</p>
+        </article>
+        <article class="about-card">
+          <h3>🔭 Visão</h3>
+          <p>Ser referência em e-commerce de hardware no Brasil, reconhecida pela transparência e pela qualidade do atendimento.</p>
+        </article>
+        <article class="about-card">
+          <h3>💜 Valores</h3>
+          <p>Foco no cliente, acessibilidade digital, honestidade nas ofertas e paixão por tecnologia.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Números da loja: contadores animados via JavaScript -->
+    <section class="stats" aria-labelledby="statsTitle">
+      <div class="container">
+        <h2 id="statsTitle">TechVerse em números</h2>
+        <div class="stats-grid">
+          <div class="stat">
+            <span class="stat-number" data-target="12000">0</span>
+            <span class="stat-label">Clientes atendidos</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" data-target="4800">0</span>
+            <span class="stat-label">Pedidos entregues</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" data-target="350">0</span>
+            <span class="stat-label">Produtos no catálogo</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" data-target="98">0</span>
+            <span class="stat-label">% de avaliações positivas</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tecnologias utilizadas no projeto -->
+    <section class="about container" aria-labelledby="techTitle">
+      <article class="about-text">
+        <h2 id="techTitle">Tecnologias deste projeto</h2>
+        <ul class="tech-list">
+          <li><strong>HTML5</strong> — estruturação semântica do conteúdo (header, nav, main, section, article, footer).</li>
+          <li><strong>CSS3</strong> — layout responsivo mobile-first com Flexbox, Grid, variáveis CSS e media queries.</li>
+          <li><strong>JavaScript</strong> — interatividade: carrossel, modal, busca em tempo real, validação de formulários, tema claro/escuro e contadores animados.</li>
+        </ul>
+      </article>
+    </section>
+
+  </main>
+
+  <!-- Rodapé semântico compartilhado -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <section aria-labelledby="footerSobre">
+        <h3 id="footerSobre">TechVerse</h3>
+        <p>Loja fictícia desenvolvida para fins acadêmicos na disciplina de Programação Front-End.</p>
+      </section>
+      <section aria-labelledby="footerLinks">
+        <h3 id="footerLinks">Navegação</h3>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="produtos.html">Produtos</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </section>
+      <section aria-labelledby="footerContato">
+        <h3 id="footerContato">Contato</h3>
+        <address>
+          <p>contato@techverse.example</p>
+          <p>São Paulo — SP, Brasil</p>
+        </address>
+      </section>
+    </div>
+    <p class="copyright">&copy; 2026 TechVerse — Projeto acadêmico. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Notificação toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>

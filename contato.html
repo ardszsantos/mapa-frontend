@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO básico: título e descrição únicos por página -->
+  <title>Contato | TechVerse</title>
+  <meta name="description" content="Fale com a TechVerse: tire dúvidas sobre produtos, pedidos e trocas pelo nosso formulário de contato. Respondemos em até 1 dia útil.">
+  <meta name="keywords" content="contato, atendimento, suporte, fale conosco, techverse">
+  <meta name="author" content="TechVerse">
+
+  <meta property="og:title" content="Contato | TechVerse">
+  <meta property="og:description" content="Fale com a nossa equipe de atendimento.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Cabeçalho compartilhado -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Página inicial TechVerse">
+        Tech<span>Verse</span>
+      </a>
+
+      <form class="search-bar" role="search" id="searchForm">
+        <input type="search" id="searchInput" placeholder="Buscar produtos, marcas e muito mais..." aria-label="Buscar produtos">
+        <button type="submit" aria-label="Buscar">🔍</button>
+      </form>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav" aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="produtos.html">Produtos</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="contato.html" aria-current="page">Contato</a></li>
+          <li><button id="themeToggle" class="theme-toggle" aria-label="Alternar tema claro/escuro">🌙</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Banner interno da página -->
+    <section class="page-hero" aria-labelledby="pageTitle">
+      <div class="container">
+        <h1 id="pageTitle">Fale conosco</h1>
+        <p>Dúvidas sobre produtos, pedidos ou trocas? Nossa equipe responde em até 1 dia útil.</p>
+      </div>
+    </section>
+
+    <section class="contact container" aria-labelledby="contatoTitle">
+      <h2 id="contatoTitle" class="visually-hidden">Formulário e canais de contato</h2>
+
+      <div class="contact-grid">
+
+        <!-- Formulário de contato com validação campo a campo via JavaScript -->
+        <form id="contactForm" class="contact-form" novalidate>
+          <div class="form-field">
+            <label for="contactName">Nome completo *</label>
+            <input type="text" id="contactName" name="nome" placeholder="Seu nome" required minlength="3" autocomplete="name">
+            <span class="field-error" id="contactNameError" aria-live="polite"></span>
+          </div>
+
+          <div class="form-field">
+            <label for="contactEmail">E-mail *</label>
+            <input type="email" id="contactEmail" name="email" placeholder="seu@email.com" required autocomplete="email">
+            <span class="field-error" id="contactEmailError" aria-live="polite"></span>
+          </div>
+
+          <div class="form-field">
+            <label for="contactSubject">Assunto *</label>
+            <select id="contactSubject" name="assunto" required>
+              <option value="">Selecione um assunto...</option>
+              <option value="duvida">Dúvida sobre produto</option>
+              <option value="pedido">Acompanhamento de pedido</option>
+              <option value="troca">Troca ou devolução</option>
+              <option value="outro">Outro assunto</option>
+            </select>
+            <span class="field-error" id="contactSubjectError" aria-live="polite"></span>
+          </div>
+
+          <div class="form-field">
+            <label for="contactMessage">Mensagem *</label>
+            <textarea id="contactMessage" name="mensagem" rows="5" placeholder="Escreva sua mensagem (mínimo de 10 caracteres)" required minlength="10"></textarea>
+            <span class="field-error" id="contactMessageError" aria-live="polite"></span>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Enviar mensagem</button>
+          <p class="form-feedback" id="contactFeedback" role="status" aria-live="polite"></p>
+        </form>
+
+        <!-- Outros canais de atendimento -->
+        <aside class="contact-info" aria-label="Outros canais de atendimento">
+          <article class="contact-card">
+            <h3>📧 E-mail</h3>
+            <p>contato@techverse.example</p>
+          </article>
+          <article class="contact-card">
+            <h3>📞 Telefone</h3>
+            <p>(11) 4002-8922 — seg. a sex., das 9h às 18h</p>
+          </article>
+          <article class="contact-card">
+            <h3>📍 Endereço</h3>
+            <address>
+              <p>Av. Paulista, 1000 — São Paulo, SP</p>
+            </address>
+          </article>
+          <article class="contact-card">
+            <h3>❓ Perguntas frequentes</h3>
+            <p>Antes de escrever, confira nossas <a href="sobre.html">informações sobre a loja</a>.</p>
+          </article>
+        </aside>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Rodapé semântico compartilhado -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <section aria-labelledby="footerSobre">
+        <h3 id="footerSobre">TechVerse</h3>
+        <p>Loja fictícia desenvolvida para fins acadêmicos na disciplina de Programação Front-End.</p>
+      </section>
+      <section aria-labelledby="footerLinks">
+        <h3 id="footerLinks">Navegação</h3>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="produtos.html">Produtos</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </section>
+      <section aria-labelledby="footerContato">
+        <h3 id="footerContato">Contato</h3>
+        <address>
+          <p>contato@techverse.example</p>
+          <p>São Paulo — SP, Brasil</p>
+        </address>
+      </section>
+    </div>
+    <p class="copyright">&copy; 2026 TechVerse — Projeto acadêmico. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Notificação toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>
