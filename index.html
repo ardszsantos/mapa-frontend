@@ -4,13 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- SEO básico: título e descrição únicos por página -->
   <title>TechVerse | Loja de Eletrônicos e Periféricos</title>
   <meta name="description" content="TechVerse — loja virtual de eletrônicos e periféricos com as melhores ofertas em placas de vídeo, processadores, monitores e mais.">
   <meta name="keywords" content="loja de informática, periféricos, placa de vídeo, processador, monitor, hardware">
   <meta name="author" content="TechVerse">
 
-  <!-- Open Graph: melhora o compartilhamento em redes sociais -->
   <meta property="og:title" content="TechVerse | Loja de Eletrônicos e Periféricos">
   <meta property="og:description" content="As melhores ofertas em hardware e periféricos.">
   <meta property="og:type" content="website">
@@ -20,14 +18,12 @@
 </head>
 <body>
 
-  <!-- Cabeçalho: elemento semântico header + nav, compartilhado por todas as páginas -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo" aria-label="Página inicial TechVerse">
         Tech<span>Verse</span>
       </a>
 
-      <!-- Em páginas sem vitrine, a busca redireciona para produtos.html -->
       <form class="search-bar" role="search" id="searchForm">
         <input type="search" id="searchInput" placeholder="Buscar produtos, marcas e muito mais..." aria-label="Buscar produtos">
         <button type="submit" aria-label="Buscar">🔍</button>
@@ -49,10 +45,9 @@
     </div>
   </header>
 
-  <!-- Conteúdo principal -->
   <main>
 
-    <!-- Banner rotativo (carrossel) — efeito interativo 1 -->
+    <!-- carrossel de ofertas -->
     <section class="hero" id="ofertas" aria-label="Ofertas em destaque">
       <div class="carousel" id="carousel">
         <div class="carousel-track" id="carouselTrack">
@@ -84,7 +79,6 @@
       </div>
     </section>
 
-    <!-- Categorias: cada card leva à página de produtos já filtrada -->
     <section class="categories container" id="categorias" aria-labelledby="categoriasTitle">
       <h2 id="categoriasTitle">Categorias</h2>
       <div class="categories-grid">
@@ -97,18 +91,16 @@
       </div>
     </section>
 
-    <!-- Destaques: subconjunto dos produtos, renderizado via JavaScript -->
     <section class="products container" aria-labelledby="destaquesTitle">
       <h2 id="destaquesTitle">Produtos em destaque</h2>
       <div class="products-grid" id="featuredGrid">
-        <!-- Cards gerados dinamicamente via JavaScript -->
+        <!-- cards preenchidos pelo script.js -->
       </div>
       <p class="see-all">
         <a href="produtos.html" class="btn btn-outline">Ver todos os produtos</a>
       </p>
     </section>
 
-    <!-- Newsletter com validação em JavaScript -->
     <section class="newsletter" aria-labelledby="newsTitle">
       <div class="container">
         <h2 id="newsTitle">Receba nossas ofertas</h2>
@@ -123,7 +115,6 @@
 
   </main>
 
-  <!-- Rodapé semântico compartilhado -->
   <footer class="site-footer">
     <div class="container footer-grid">
       <section aria-labelledby="footerSobre">
@@ -150,7 +141,7 @@
     <p class="copyright">&copy; 2026 TechVerse — Projeto acadêmico. Todos os direitos reservados.</p>
   </footer>
 
-  <!-- Modal de detalhes do produto — efeito interativo 2 -->
+  <!-- modal de detalhes do produto -->
   <div class="modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
     <div class="modal-content">
       <button class="modal-close" id="modalClose" aria-label="Fechar">&times;</button>
@@ -161,7 +152,6 @@
     </div>
   </div>
 
-  <!-- Notificação toast -->
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="js/script.js" defer></script>

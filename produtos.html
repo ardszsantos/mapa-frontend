@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- SEO básico: título e descrição únicos por página -->
   <title>Produtos | TechVerse</title>
   <meta name="description" content="Catálogo completo da TechVerse: placas de vídeo, processadores, periféricos, monitores, armazenamento e fontes com os melhores preços.">
   <meta name="keywords" content="catálogo, hardware, placa de vídeo, processador, teclado mecânico, mouse gamer, SSD">
@@ -19,14 +18,12 @@
 </head>
 <body>
 
-  <!-- Cabeçalho compartilhado -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo" aria-label="Página inicial TechVerse">
         Tech<span>Verse</span>
       </a>
 
-      <!-- Nesta página a busca filtra a vitrine em tempo real -->
       <form class="search-bar" role="search" id="searchForm">
         <input type="search" id="searchInput" placeholder="Buscar produtos, marcas e muito mais..." aria-label="Buscar produtos">
         <button type="submit" aria-label="Buscar">🔍</button>
@@ -50,7 +47,6 @@
 
   <main>
 
-    <!-- Banner interno da página -->
     <section class="page-hero" aria-labelledby="pageTitle">
       <div class="container">
         <h1 id="pageTitle">Nossos produtos</h1>
@@ -58,7 +54,6 @@
       </div>
     </section>
 
-    <!-- Filtros por categoria: botões controlados via JavaScript -->
     <section class="filters container" aria-label="Filtros por categoria">
       <div class="filter-buttons" id="filterButtons">
         <button type="button" class="filter-btn active" data-category="todos">Todos</button>
@@ -71,17 +66,15 @@
       </div>
     </section>
 
-    <!-- Vitrine completa de produtos -->
     <section class="products container" id="produtos" aria-labelledby="produtosTitle">
       <h2 id="produtosTitle" class="visually-hidden">Vitrine de produtos</h2>
       <div class="products-grid" id="productsGrid">
-        <!-- Cards gerados dinamicamente via JavaScript -->
+        <!-- cards preenchidos pelo script.js -->
       </div>
     </section>
 
   </main>
 
-  <!-- Rodapé semântico compartilhado -->
   <footer class="site-footer">
     <div class="container footer-grid">
       <section aria-labelledby="footerSobre">
@@ -108,7 +101,6 @@
     <p class="copyright">&copy; 2026 TechVerse — Projeto acadêmico. Todos os direitos reservados.</p>
   </footer>
 
-  <!-- Modal de detalhes do produto -->
   <div class="modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
     <div class="modal-content">
       <button class="modal-close" id="modalClose" aria-label="Fechar">&times;</button>
@@ -119,7 +111,6 @@
     </div>
   </div>
 
-  <!-- Notificação toast -->
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="js/script.js" defer></script>

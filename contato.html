@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- SEO básico: título e descrição únicos por página -->
   <title>Contato | TechVerse</title>
   <meta name="description" content="Fale com a TechVerse: tire dúvidas sobre produtos, pedidos e trocas pelo nosso formulário de contato. Respondemos em até 1 dia útil.">
   <meta name="keywords" content="contato, atendimento, suporte, fale conosco, techverse">
@@ -19,7 +18,6 @@
 </head>
 <body>
 
-  <!-- Cabeçalho compartilhado -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="logo" aria-label="Página inicial TechVerse">
@@ -49,7 +47,6 @@
 
   <main>
 
-    <!-- Banner interno da página -->
     <section class="page-hero" aria-labelledby="pageTitle">
       <div class="container">
         <h1 id="pageTitle">Fale conosco</h1>
@@ -62,7 +59,7 @@
 
       <div class="contact-grid">
 
-        <!-- Formulário de contato com validação campo a campo via JavaScript -->
+        <!-- formulário validado no script.js -->
         <form id="contactForm" class="contact-form" novalidate>
           <div class="form-field">
             <label for="contactName">Nome completo *</label>
@@ -98,7 +95,6 @@
           <p class="form-feedback" id="contactFeedback" role="status" aria-live="polite"></p>
         </form>
 
-        <!-- Outros canais de atendimento -->
         <aside class="contact-info" aria-label="Outros canais de atendimento">
           <article class="contact-card">
             <h3>📧 E-mail</h3>
@@ -125,7 +121,6 @@
 
   </main>
 
-  <!-- Rodapé semântico compartilhado -->
   <footer class="site-footer">
     <div class="container footer-grid">
       <section aria-labelledby="footerSobre">
@@ -152,7 +147,6 @@
     <p class="copyright">&copy; 2026 TechVerse — Projeto acadêmico. Todos os direitos reservados.</p>
   </footer>
 
-  <!-- Notificação toast -->
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="js/script.js" defer></script>

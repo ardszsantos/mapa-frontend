@@ -1,25 +1,6 @@
-/* ==========================================================
-   TechVerse — script.js
-   Script único compartilhado pelas quatro páginas do site.
-   Cada recurso é isolado em uma função init*() que só executa
-   se os elementos correspondentes existirem na página atual.
-
-   Recursos interativos em JavaScript puro (vanilla):
-   1. Menu hambúrguer responsivo
-   2. Tema claro/escuro persistido em localStorage
-   3. Carrossel automático com controles e indicadores (index)
-   4. Renderização dinâmica de produtos (index e produtos)
-   5. Busca em tempo real + filtros por categoria (produtos)
-   6. Modal de detalhes do produto
-   7. Validação do formulário de newsletter (index)
-   8. Validação campo a campo do formulário de contato (contato)
-   9. Contadores animados com IntersectionObserver (sobre)
-   10. Notificações toast
-   ========================================================== */
-
 "use strict";
 
-/* ---------- Dados dos produtos (simulação de API/JSON) ---------- */
+// lista de produtos da loja
 const products = [
   { id: 1, name: "Placa de Vídeo RTX 5060 8GB", category: "gpu", icon: "🎮", price: 2499.9, featured: true, description: "GPU de última geração com DLSS 4, ray tracing e 8GB GDDR7. Ideal para jogos em 1080p/1440p com alta taxa de quadros." },
   { id: 2, name: "Processador Intel Core i7 12ª Geração", category: "cpu", icon: "⚙️", price: 1899.9, featured: true, description: "12 núcleos híbridos, alto desempenho em jogos e produtividade. Compatível com soquete LGA1700." },
@@ -31,13 +12,12 @@ const products = [
   { id: 8, name: "Headset Gamer 7.1 Surround", category: "periferico", icon: "🎧", price: 279.9, featured: false, description: "Som surround virtual 7.1, microfone com cancelamento de ruído e almofadas em espuma viscoelástica." }
 ];
 
-/* ---------- Utilitários ---------- */
 const $ = (id) => document.getElementById(id);
 
 const formatPrice = (value) =>
   value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 
-/* ---------- 1. Menu hambúrguer ---------- */
+// menu hambúrguer
 function initMenu() {
   const menuToggle = $("menuToggle");
   const mainNav = $("mainNav");
@@ -49,7 +29,7 @@ function initMenu() {
     menuToggle.setAttribute("aria-expanded", String(isOpen));
   });
 
-  // Fecha o menu ao clicar em um link (melhora a UX no mobile)
+  // fecha o menu ao clicar em um link
   mainNav.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
       mainNav.classList.remove("open");
@@ -59,12 +39,11 @@ function initMenu() {
   });
 }
 
-/* ---------- 2. Tema claro/escuro com persistência ---------- */
+// tema claro/escuro
 function initTheme() {
   const themeToggle = $("themeToggle");
   if (!themeToggle) return;
 
-  // Restaura a preferência salva para manter o tema entre as páginas
   const saved = localStorage.getItem("techverse-theme");
   if (saved === "dark") {
     document.body.classList.add("dark-theme");
@@ -78,7 +57,7 @@ function initTheme() {
   });
 }
 
-/* ---------- 3. Carrossel (apenas na página inicial) ---------- */
+// carrossel da home
 function initCarousel() {
   const track = $("carouselTrack");
   const prevBtn = $("prevBtn");
@@ -90,7 +69,6 @@ function initCarousel() {
   let currentSlide = 0;
   let autoplayTimer = null;
 
-  // Cria os indicadores (dots) dinamicamente
   slides.forEach((_, index) => {
     const dot = document.createElement("button");
     dot.setAttribute("aria-label", `Ir para o slide ${index + 1}`);
@@ -118,7 +96,7 @@ function initCarousel() {
   restartAutoplay();
 }
 
-/* ---------- 4. Renderização dinâmica dos produtos ---------- */
+// monta os cards de produto
 function renderProducts(list, grid) {
   grid.innerHTML = "";
 
@@ -143,14 +121,13 @@ function renderProducts(list, grid) {
   });
 }
 
-/* Destaques na página inicial */
 function initFeatured() {
   const grid = $("featuredGrid");
   if (!grid) return;
   renderProducts(products.filter((p) => p.featured), grid);
 }
 
-/* ---------- 5. Vitrine com busca e filtros (página de produtos) ---------- */
+// busca e filtros da página de produtos
 function initProductsPage() {
   const grid = $("productsGrid");
   if (!grid) return;
@@ -159,7 +136,6 @@ function initProductsPage() {
   const filterButtons = document.querySelectorAll(".filter-btn");
   let activeCategory = "todos";
 
-  // Aplica busca + categoria em conjunto
   function applyFilters() {
     const term = searchInput ? searchInput.value.trim().toLowerCase() : "";
     const filtered = products.filter((p) => {
@@ -185,12 +161,11 @@ function initProductsPage() {
     });
   });
 
-  // Busca em tempo real
   if (searchInput) {
     searchInput.addEventListener("input", applyFilters);
   }
 
-  // Lê parâmetros da URL — permite links como produtos.html?categoria=gpu
+  // ex: produtos.html?categoria=gpu
   const params = new URLSearchParams(window.location.search);
   const categoryParam = params.get("categoria");
   const searchParam = params.get("busca");
@@ -204,7 +179,6 @@ function initProductsPage() {
   }
 }
 
-/* Busca no cabeçalho das demais páginas: redireciona para a vitrine */
 function initSearchRedirect() {
   const searchForm = $("searchForm");
   const searchInput = $("searchInput");
@@ -212,14 +186,14 @@ function initSearchRedirect() {
 
   searchForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    // Na página de produtos a filtragem já acontece em tempo real
+    // na página de produtos o filtro já é em tempo real
     if ($("productsGrid")) return;
     const term = searchInput.value.trim();
     window.location.href = `produtos.html?busca=${encodeURIComponent(term)}`;
   });
 }
 
-/* ---------- 6. Modal de produto ---------- */
+// modal de detalhes do produto
 function initModal() {
   const modal = $("productModal");
   if (!modal) return;
@@ -230,7 +204,6 @@ function initModal() {
   const modalClose = $("modalClose");
   const modalBuy = $("modalBuy");
 
-  // Delegação de eventos: um único listener cobre qualquer vitrine da página
   document.addEventListener("click", (e) => {
     const button = e.target.closest(".product-card button[data-id]");
     if (!button) return;
@@ -263,10 +236,9 @@ function initModal() {
   });
 }
 
-/* ---------- Validação de e-mail compartilhada ---------- */
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-/* ---------- 7. Formulário de newsletter (página inicial) ---------- */
+// newsletter
 function initNewsletter() {
   const form = $("newsletterForm");
   if (!form) return;
@@ -290,14 +262,13 @@ function initNewsletter() {
   });
 }
 
-/* ---------- 8. Formulário de contato com validação campo a campo ---------- */
+// formulário de contato
 function initContactForm() {
   const form = $("contactForm");
   if (!form) return;
 
   const feedback = $("contactFeedback");
 
-  // Regras de validação: cada campo tem sua função e mensagem de erro
   const fields = [
     {
       input: $("contactName"),
@@ -325,7 +296,6 @@ function initContactForm() {
     }
   ];
 
-  // Valida um campo e exibe/limpa a mensagem de erro correspondente
   function validateField(field) {
     const isValid = field.validate(field.input.value);
     field.error.textContent = isValid ? "" : field.message;
@@ -333,7 +303,7 @@ function initContactForm() {
     return isValid;
   }
 
-  // Validação em tempo real: ao sair do campo e enquanto o usuário corrige
+  // valida ao sair do campo
   fields.forEach((field) => {
     field.input.addEventListener("blur", () => validateField(field));
     field.input.addEventListener("input", () => {
@@ -344,7 +314,6 @@ function initContactForm() {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // Valida todos os campos; foca o primeiro inválido
     const results = fields.map((field) => validateField(field));
     const firstInvalid = fields[results.indexOf(false)];
 
@@ -355,7 +324,7 @@ function initContactForm() {
       return;
     }
 
-    // Envio simulado (não há back-end neste projeto acadêmico)
+    // envio simulado, o site não tem back-end
     feedback.textContent = "Mensagem enviada com sucesso! Responderemos em até 1 dia útil. ✅";
     feedback.className = "form-feedback success";
     form.reset();
@@ -364,12 +333,11 @@ function initContactForm() {
   });
 }
 
-/* ---------- 9. Contadores animados (página Sobre) ---------- */
+// contadores da página sobre
 function initCounters() {
   const counters = document.querySelectorAll(".stat-number");
   if (counters.length === 0) return;
 
-  // Anima do zero até o valor de data-target em ~1,5s
   function animate(counter) {
     const target = Number(counter.dataset.target);
     const duration = 1500;
@@ -383,7 +351,7 @@ function initCounters() {
     requestAnimationFrame(step);
   }
 
-  // IntersectionObserver: dispara a animação quando os números entram na tela
+  // anima quando os números aparecem na tela
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -396,7 +364,7 @@ function initCounters() {
   counters.forEach((counter) => observer.observe(counter));
 }
 
-/* ---------- 10. Toast ---------- */
+// toast de aviso
 const toast = $("toast");
 let toastTimer = null;
 
@@ -408,7 +376,6 @@ function showToast(message) {
   toastTimer = setTimeout(() => toast.classList.remove("show"), 2800);
 }
 
-/* ---------- Inicialização ---------- */
 initMenu();
 initTheme();
 initCarousel();
